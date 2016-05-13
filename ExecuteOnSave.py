@@ -44,7 +44,7 @@ class ExecuteOnSaveCommand(sublime_plugin.TextCommand):
         if saving and not build_on_save:
             return
 
-        for filter, execute in filter_execute:
+        for filter, args in filter_execute.iteritems():
             if re.search(filter, view.file_name()):
-                cmd = Template(execute).substitute(variables)
-                view.window().run_command("exec", {"cmd": cmd})
+                args['cmd'] = Template(args['cmd']).substitute(variables)
+                view.window().run_command("exec", args)

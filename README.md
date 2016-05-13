@@ -40,7 +40,7 @@ Do NOT edit the default ExecuteOnSave settings. Your changes will be lost when E
 Set to `1` to trigger a build on save. By default, this is set to `0`.
 
 * **filter_execute**
-Is an array that holds one array or multiple arrays with a length of 2. The first element is a regular expression that specifies on which files that are saved the command should be executed. The second element is the command that should be executed. Okay this sounds way too complicated, an example should clear this up.
+Is a dictionary that holds one or multiple paths along with its associated command executions. Each key is a regular expression that specifies on which files that are saved the command should be executed. The value is the args to the the command that should be executed. Okay this sounds way too complicated, an example should clear this up.
 
 Example project file:
 
@@ -54,10 +54,10 @@ Example project file:
 		"settings":
 		{
 			"build_on_save": 1,
-			"filter_execute":[
-				["\\.js$", "/Users/username/Sites/projects/flow2/repo/build.sh"],
-				["\\.as$", "/Users/username/Sites/projects/flow2/repo/flash/build.sh"]
-			]
+			"filter_execute": {
+				"\\.js$": { "cmd": "/Users/username/Sites/projects/flow2/repo/build.sh" },
+				"\\.as$": { "cmd": "/Users/username/Sites/projects/flow2/repo/flash/build.sh" }
+			}
 		}
 	}
 

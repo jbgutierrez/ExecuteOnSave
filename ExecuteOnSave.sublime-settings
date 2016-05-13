@@ -1,7 +1,9 @@
 {
-    "filter_execute": [
-    	//["\\.js$", "/Users/myname/Sites/projects/coolproject/build.sh"],
-    	//["\\.as$", "/Users/myname/Sites/projects/coolproject/flash/build.sh"]
-    ],
-    "build_on_save": 0
+    {
+        "build_on_save": 0,
+            "filter_execute": {
+                "\\.js$": { "cmd": "/Users/username/Sites/projects/flow2/repo/build.sh" },
+                "\\.as$": { "cmd": "/Users/username/Sites/projects/flow2/repo/flash/build.sh" }
+            }
+    }
 }
